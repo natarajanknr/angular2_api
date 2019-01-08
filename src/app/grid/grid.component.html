@@ -1,0 +1,34 @@
+<div class="container">
+	<h2>  Grid Page !!! </h2>
+	<h2> {{gridErrorMsg}} </h2>
+	<div class="gridSearch">
+	<label>Search: &nbsp;</label>
+		<input type="search" [(ngModel)] = gridSearch>
+		<!--input type="search"  [(ngModel)] = gridSearch [ngModelOptions]="{standalone: true}" -->
+	</div>
+	<table class='table table-striped table-condensed' *ngIf='employee && employee.length'>
+	<thead>
+	<tr>
+		<th style="min-width: 80px;">Title</th>
+		<th style="min-width: 80px;">Id</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr *ngFor="let emp of employee | gridFilter : gridSearch ">
+	<td>{{emp.title| uppercase}}</td>
+	<td>{{emp.id}}</td>
+	</tr>
+	</tbody>
+	</table>
+	<hr>
+ 	<label>Enter User Id :</label> &nbsp;
+	<input type="number" min="1" max="100" name="postId" [(ngModel)] = postId>
+	&nbsp;&nbsp;<button (click) = getPostId(postId)>GetPost</button><br/><br/>
+	<h2> {{errorMsg}} </h2>
+	<table *ngIf='singlePost'>
+		<tr><td><b>Title: &nbsp;</b></td><td>{{singlePost.title | uppercase}}</td></tr>
+		<tr><td><b>Id: &nbsp;</b></td><td>{{singlePost.id}}</td></tr>
+		<tr><td><b>UserId: &nbsp;</b></td><td>{{singlePost.userId}}</td></tr>
+		<tr><td><b>Body: &nbsp;</b></td><td>{{singlePost.body}}</td></tr>		
+	</table>
+</div>
