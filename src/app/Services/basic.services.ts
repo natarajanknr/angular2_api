@@ -7,8 +7,8 @@ import 'rxjs/add/operator/map';
 export class BasicServices {	
 	constructor(private http: Http) {}
 	GetPosts() {
-		//return this.http.get('assets/data/employeeData.json')
-		return this.http.get('https://jsonplaceholder.typicode.com/posts/')
+		return this.http.get('assets/data/employeeData.json')
+		//return this.http.get('https://jsonplaceholder.typicode.com/posts/')
 		.map(result => result.json());
 	}
 	GetPostsAsperId(postId) {
